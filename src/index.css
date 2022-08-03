@@ -1,0 +1,16 @@
+
+
+body {
+    margin: 0;
+
+}
+
+
+.MuiAppBar-colorPrimary {
+        background-color: #f7981d !important;
+}
+
+.MuiButton-contained {
+    background-color: #f7981d !important;
+    padding: 1rem 2rem !important;
+}
