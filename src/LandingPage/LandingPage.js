@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import "./styles.css";
-import { Container, Typography,Button } from "@material-ui/core";
+import { Container, Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import useStyles from "./styles.js";
-import Intro from './Intro';
+import Intro from "./Intro";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -13,23 +13,21 @@ const WhiteTextTypography = withStyles({
   },
 })(Typography);
 
-
 const LandingPage = () => {
   const classes = useStyles();
-     const [booking, setBooking] = useState([]);
+  const [booking, setBooking] = useState([]);
 
   const fetchData = async () => {
     const response = await fetch("http://localhost:5000/tours");
     const data = await response.json();
     setBooking(data);
   };
-  
+
   useEffect(() => {
     fetchData();
-   
-  },[])
+  }, []);
 
- console.log(booking);
+  console.log(booking);
   return (
     <>
       <Header />
@@ -48,7 +46,7 @@ const LandingPage = () => {
             <Link to="/search">
               <Button variant="contained" className={classes.landingButton}>
                 <WhiteTextTypography variant="h6">
-                  EXPLORE NOW{" "}
+                  EXPLORE NOW
                 </WhiteTextTypography>
               </Button>
             </Link>
@@ -60,6 +58,6 @@ const LandingPage = () => {
       </Container>
     </>
   );
-}
+};
 
-export default LandingPage
+export default LandingPage;

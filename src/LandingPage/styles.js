@@ -16,12 +16,10 @@ export default makeStyles((theme) => ({
     },
   },
 
- 
   header: {
     display: "flex",
     justifyContent: "space-between",
     width: "100vw",
- 
   },
 
   link: {
@@ -29,16 +27,13 @@ export default makeStyles((theme) => ({
     color: "black",
   },
 
-
-
   landingBox: {
     height: "100vh",
     justifyContent: "center",
     display: "flex",
     alignItems: "center",
-    flexDirection:"column"
+    flexDirection: "column",
   },
-
 
   landingButton: {
     marginTop: "2rem",
@@ -52,4 +47,15 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
   },
+
+  introImage: {
+    width: "100%",
+  },
+  sectionMargin: {
+    marginTop: "8rem",
+  },
+  marginParagraph: {
+    marginLeft: "5rem",
+    padding: "2rem 0",
+  }
 }));
