@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Box, Typography} from "@material-ui/core";
+import { Container, Grid, Box, Typography } from "@material-ui/core";
 
 const Intro = () => {
   return (
@@ -7,10 +7,11 @@ const Intro = () => {
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-             <Box>
-                          <Typography variant="h3">
-                          In New Zealand, epic landscapes brim with geological drama and harbor the rich 
-                          </Typography>           
+            <Box>
+              <Typography variant="h4" >
+                In New Zealand, epic landscapes brim with geological drama and
+                harbor the rich cultural heritage of the Maori.
+              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>

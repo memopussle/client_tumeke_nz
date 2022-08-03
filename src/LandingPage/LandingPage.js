@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import "./styles.css";
 import { Container, Typography,Button } from "@material-ui/core";
@@ -15,15 +15,31 @@ const WhiteTextTypography = withStyles({
 
 
 const LandingPage = () => {
-   const classes = useStyles();
+  const classes = useStyles();
+     const [booking, setBooking] = useState([]);
 
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:5000/tours");
+    const data = await response.json();
+    setBooking(data);
+  };
+  
+  useEffect(() => {
+    fetchData();
+   
+  },[])
+
+ console.log(booking);
   return (
     <>
       <Header />
       <div className="landing-page">
         <Container maxWidth="xl">
           <div className={classes.landingBox}>
-            <WhiteTextTypography variant="h1" style={{ textAlign: "center", fontWeight: "600" }}>
+            <WhiteTextTypography
+              variant="h1"
+              style={{ textAlign: "center", fontWeight: "600" }}
+            >
               NEW ZEALAND
             </WhiteTextTypography>
             <WhiteTextTypography variant="h6">
@@ -39,7 +55,9 @@ const LandingPage = () => {
           </div>
         </Container>
       </div>
-      <Intro />
+      <Container maxWidth="xl">
+        <Intro />
+      </Container>
     </>
   );
 }
