@@ -23,7 +23,7 @@ const LandingPage = () => {
       <div className="landing-page">
         <Container maxWidth="xl">
           <div className={classes.landingBox}>
-            <WhiteTextTypography variant="h1" style={{ textAlign: "center" }}>
+            <WhiteTextTypography variant="h1" style={{ textAlign: "center", fontWeight: "600" }}>
               NEW ZEALAND
             </WhiteTextTypography>
             <WhiteTextTypography variant="h6">
