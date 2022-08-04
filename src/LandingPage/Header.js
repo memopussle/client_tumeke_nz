@@ -2,7 +2,6 @@ import React from "react";
 import {
   Toolbar,
   Typography,
-
   Box,
   Container,
 } from "@material-ui/core";
@@ -24,7 +23,7 @@ const Header = () => {
 
   return (
     <Toolbar>
-      <Container maxWidth="xl" className={classes.header}>
+      <Container className={classes.header}>
         <WhiteTextTypography variant="h5">Tu Meke NZ</WhiteTextTypography>
         <Box className={classes.nav}>
           <Link to="/" className={classes.navLink}>

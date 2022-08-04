@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-
+   
 }
 
 
@@ -12,5 +12,10 @@ body {
 
 .MuiButton-contained {
     background-color: #f7981d !important;
+    padding: 1rem 2rem !important;
+}
+
+.MuiButton-outlined {
+    border: 1px solid #f7981d !important;
     padding: 1rem 2rem !important;
 }
