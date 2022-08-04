@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
 import "./styles.css";
 import { Container, Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import useStyles from "./styles.js";
-import Intro from "./Intro";
-import Services from "./Services";
+import { Restaurants, Hotels, Services, Intro, Header } from "./index";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -28,7 +26,7 @@ const LandingPage = () => {
     fetchData();
   }, []);
 
-
+  console.log(booking);
   return (
     <>
       <div className="landing-page">
@@ -57,6 +55,8 @@ const LandingPage = () => {
       <Container maxWidth="xl">
         <Intro />
         <Services booking={booking} />
+        <Hotels />
+        <Restaurants />
       </Container>
     </>
   );

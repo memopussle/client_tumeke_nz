@@ -16,8 +16,6 @@ const EachTour = () => {
   const { id } = useParams();
 
   const [tour, setTour] = useState();
-  console.log(tour);
-
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`http://localhost:5000/tours/${id}`);
@@ -34,14 +32,12 @@ const EachTour = () => {
   }, [id]);
 
   //img slider
-  const slides = tour?.img;
-
 
   return (
     <div>
       <Container maxWidth="xl">
         <Grid container spacing={4}>
-          <Grid xs={12}>
+          <Grid item xs={12}>
             <Typography variant="h4">{tour?.title}</Typography>
             <div>
               <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
@@ -52,12 +48,10 @@ const EachTour = () => {
               4.8
             </div>
           </Grid>
-          <Grid item xs={8} md={6}>
-      
-              <ImageSlider slides={slides} />
- 
+          <Grid item xs={12} md={6}>
+            <ImageSlider tour={tour} />
           </Grid>
-          <Grid item xs={8} md={6}>
+          <Grid item xs={12} md={6}>
             grid2
           </Grid>
         </Grid>
