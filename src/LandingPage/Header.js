@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AppBar,
   Toolbar,
   Typography,
 
@@ -24,34 +23,30 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
-      <Toolbar className={classes.toolBar}>
-        <Container maxWidth="xl" className={classes.header}>
-          <WhiteTextTypography variant="h5">
-            Tu Meke NZ
-          </WhiteTextTypography>
-          <Box className={classes.nav}>
-            <Link to="/" className={classes.navLink}>
-              <WhiteTextTypography variant="h6" className={classes.title}>
-                Home
-              </WhiteTextTypography>
-            </Link>
-            <Link to="/search" className={classes.navLink}>
-              <WhiteTextTypography variant="h6" className={classes.title}>
-                Search
-              </WhiteTextTypography>
-            </Link>
-            <Link to="/about" className={classes.navLink}>
-              <WhiteTextTypography variant="h6" className={classes.title}>
-                About
-              </WhiteTextTypography>
-            </Link>
+    <Toolbar>
+      <Container maxWidth="xl" className={classes.header}>
+        <WhiteTextTypography variant="h5">Tu Meke NZ</WhiteTextTypography>
+        <Box className={classes.nav}>
+          <Link to="/" className={classes.navLink}>
+            <WhiteTextTypography variant="h6" className={classes.title}>
+              Home
+            </WhiteTextTypography>
+          </Link>
+          <Link to="/search" className={classes.navLink}>
+            <WhiteTextTypography variant="h6" className={classes.title}>
+              Search
+            </WhiteTextTypography>
+          </Link>
+          <Link to="/about" className={classes.navLink}>
+            <WhiteTextTypography variant="h6" className={classes.title}>
+              About
+            </WhiteTextTypography>
+          </Link>
 
-            <BasicMenu />
-          </Box>
-        </Container>
-      </Toolbar>
-    </AppBar>
+          <BasicMenu />
+        </Box>
+      </Container>
+    </Toolbar>
   );
 };
 

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import useStyles from "./styles.js";
 import Intro from "./Intro";
+import Services from "./Services";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -27,12 +28,12 @@ const LandingPage = () => {
     fetchData();
   }, []);
 
-  console.log(booking);
+
   return (
     <>
-      <Header />
       <div className="landing-page">
         <Container maxWidth="xl">
+          <Header />
           <div className={classes.landingBox}>
             <WhiteTextTypography
               variant="h1"
@@ -41,7 +42,7 @@ const LandingPage = () => {
               NEW ZEALAND
             </WhiteTextTypography>
             <WhiteTextTypography variant="h6">
-              The new clamn of journey
+              To the world of an incredible vacation.
             </WhiteTextTypography>
             <Link to="/search">
               <Button variant="contained" className={classes.landingButton}>
@@ -55,6 +56,7 @@ const LandingPage = () => {
       </div>
       <Container maxWidth="xl">
         <Intro />
+        <Services booking={booking} />
       </Container>
     </>
   );

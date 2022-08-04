@@ -57,5 +57,17 @@ export default makeStyles((theme) => ({
   marginParagraph: {
     marginLeft: "5rem",
     padding: "2rem 0",
-  }
+  },
+ 
+  introText: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column"
+  },
+       
+serviceImg: {
+   width: "100%",
+  },
+
+  
 }));
