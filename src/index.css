@@ -2,7 +2,11 @@
 
 body {
     margin: 0;
-   color: rgb(56, 56, 56) !important;
+   color: rgb(50, 50, 50) !important;
+}
+
+.MuiPaper-root {
+      color: rgb(50, 50, 50) !important;
 }
 
 

@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from "react";
 import {
   Typography,
-  Card,
-  CardMedia,
-  CardContent,
   Grid,
   Container,
+  Paper,
+  Button,
+  Box,
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
 import ImageSlider from "./ImageSlider";
+import formatDate from "../components/formatDate";
+import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import useStyles from "./styles.js";
+import HistoryIcon from "@material-ui/icons/History";
+import { withStyles } from "@material-ui/core/styles";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
+import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
+
+
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF",
+  },
+})(Typography);
 
 const EachTour = () => {
+  const classes = useStyles();
   const { id } = useParams();
 
   const [tour, setTour] = useState();
@@ -31,7 +48,9 @@ const EachTour = () => {
     fetchData();
   }, [id]);
 
-  //img slider
+  if (tour === undefined) {
+    return "Loading...";
+  }
 
   return (
     <div>
@@ -48,13 +67,100 @@ const EachTour = () => {
               4.8
             </div>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
             <ImageSlider tour={tour} />
           </Grid>
-          <Grid item xs={12} md={6}>
-            grid2
+          <Grid item xs={12} md={4}>
+            <Paper elevation={2} className={classes.bookWrapper}>
+              <Grid container>
+                <Grid item xs={10}>
+                  <Typography variant="subtitle2">
+                    <CalendarTodayIcon /> {formatDate(tour?.date)}
+                  </Typography>
+                </Grid>
+                <Grid item xs={2}>
+                  <Typography variant="subtitle2">
+                    <PersonOutlineIcon /> {tour?.group_size}
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              <Grid container className={classes.marginTop}>
+                <Grid item xs={8}>
+                  <Typography variant="subtitle2">Book in advance</Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  <Typography variant="subtitle2">
+                    From ${tour?.price} per {tour?.per}
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              <Button variant="contained" className={classes.bookNow}>
+                <WhiteTextTypography>BOOK NOW</WhiteTextTypography>
+              </Button>
+              <Typography variant="subtitle2">
+                <HistoryIcon /> Free Cancellation
+              </Typography>
+              <Grid item xs={12} className={classes.marginTop}>
+                <Typography variant="h6">About</Typography>
+                <Typography variant="body1" className={classes.marginTop}>
+                  {tour?.description}
+                </Typography>
+              </Grid>
+            </Paper>
           </Grid>
         </Grid>
+        <Paper variant="outlined" className={classes.detailsWrapper}>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={7}>
+              <Typography variant="body2">Snap Shot: </Typography>
+              <Typography variant="h6" className={classes.marginTop}>
+                {tour?.tour_snapshot}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Grid container spacing={4}>
+                <Grid item xs={12} md={4}>
+                  <Typography variant="body1">
+                    <AccessTimeIcon /> Duration: {tour?.duration}
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Typography variant="body1">
+                    <DirectionsBusIcon /> Near public transportation: {tour?.near_transport}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Typography variant="body1">
+                    <ConfirmationNumberIcon /> Ticket type: {tour?.ticket_type}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Box className={classes.marginTop}>
+            <Typography variant="body1" className={classes.highlights}>
+              Highlights
+            </Typography>
+            {tour?.highlights.map((hightlight) => (
+              <div>
+                <Typography variant="body1"> • {hightlight}</Typography>
+              </div>
+            ))}
+          </Box>
+          <Box className={classes.marginTop}>
+            <Typography variant="body1" className={classes.highlights}>
+              Know before you go
+            </Typography>
+            {tour?.additional_info.map((addInfo) => (
+              <div>
+                <Typography variant="body1"> • {addInfo}</Typography>
+              </div>
+            ))}
+          </Box>
+        </Paper>
       </Container>
     </div>
   );

@@ -54,6 +54,20 @@ export default makeStyles((theme) => ({
   sectionMargin: {
     marginTop: "8rem",
   },
+
+  restaurantWrapper: {
+    height: "auto",
+    backgroundColor: "white",
+    marginTop: "-5rem",
+    padding: "2rem"
+
+  },
+  restaurantImg: {
+    width: "100%",
+    position: "relative",
+    zIndex: "-10"
+  },
+
   marginParagraph: {
     marginLeft: "5rem",
     padding: "2rem 0",
@@ -63,7 +77,5 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
-  }
-
-
+  },
 }));

@@ -11,23 +11,11 @@ import {
 import StarIcon from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
 import { Link } from "react-router-dom";
+import formatDate from "../components/formatDate";
 
 const Services = ({ booking }) => {
   const classes = useStyles();
   console.log(booking);
-  const formatDate = (oldDate) => {
-    var date = new Date(oldDate);
-    const fortmattedDate =
-      date.toLocaleTimeString() +
-      "," +
-      " " +
-      date.getDate() +
-      "-" +
-      (date.getMonth() + 1) +
-      "-" +
-      date.getFullYear();
-    return String(fortmattedDate);
-  };
 
   //refortmat date in each data object
   const newBooking = booking.map((eachBooking) => {
@@ -69,7 +57,7 @@ const Services = ({ booking }) => {
                   4.8
                 </div>
                 <Typography variant="body1">{service?.description}</Typography>
-                <Link to={`/tours/${service._id}`}>
+                <Link to={`/tours/${service._id}`} >
                   <Button variant="outlined">
                     <Typography variant="body1">VIEW TOUR</Typography>
                   </Button>
