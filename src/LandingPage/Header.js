@@ -24,7 +24,7 @@ const Header = () => {
     <>
       <Toolbar className={whiteNav ? "" : "yellowBar"}>
         <Container maxWidth="xl" className={classes.header}>
-          <WhiteTextTypography variant="h5">Tu Meke NZ</WhiteTextTypography>
+          <WhiteTextTypography variant="h5">Tui Meke NZ</WhiteTextTypography>
 
           <Box className={classes.nav}>
             <Link to="/" className={classes.navLink}>

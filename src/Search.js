@@ -34,7 +34,7 @@ const App = () => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
 
     setFilteredPlaces(filtered);
-  }, [rating]);
+  }, [rating, places]);
 
   useEffect(() => {
     if (bounds) {

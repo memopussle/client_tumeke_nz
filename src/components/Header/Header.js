@@ -26,7 +26,7 @@ const Header = ({ onPlaceChanged, onLoad }) => {
         <Container maxWidth="xl" className={classes.header}>
           <Box className={classes.nav}>
             <WhiteTextTypography variant="h5" className={classes.title}>
-              Tu Meke NZ
+              Tui Meke NZ
             </WhiteTextTypography>
             <Link to="/" className={classes.navLink}>
               <Typography variant="h6" className={classes.title}>

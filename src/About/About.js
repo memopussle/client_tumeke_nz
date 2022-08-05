@@ -44,50 +44,53 @@ const About = () => {
       <Container maxWidth="xl" className={classes.sectionMargin}>
         <Paper variant="outlined" className={classes.aboutWrapper}>
           <Grid container spacing={10}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={6}>
               <div className={classes.imgWrapper}>
                 <img src={about1} alt="about us" className={classes.aboutImg} />
               </div>
             </Grid>
-            <Grid item xs={12} md={4} className={classes.imgWrapper}>
+            <Grid item xs={12} md={6} className={classes.imgWrapper}>
               <Typography variant="h4">Who are we?</Typography>
               <Typography variant="body1" className={classes.normalMargin}>
-                We are very enthusiastic to present our travel agency. Our
-                well-established travel agency has been in the industry for more
-                than twelve years. We are expert in every minor detail of this
-                business and have been recognized by many people within these
-                years. Our firm has familiarized the difficulty and aggravations
-                of attaining visas and passports. So here we are, to deliver you
-                the tension-free foldaway.
+                Tui Meke NZ is a boutique travel agency providing comprehensive
+                services to clients in New Zealand. Located throughout New
+                Zealand, our consultants bring a wealth of knowledge and
+                personal experience to their role. We provide honest, personal,
+                and value-based travel advice for business and leisure clients.
+                Our attention to detail means you have the security of knowing
+                your travel will be right, first time. If your plans change, you
+                know we’ll be there to sort it out.
               </Typography>
             </Grid>
           </Grid>
         </Paper>
-        <Paper variant="outlined" className={classes.aboutWrapper}>
+        <Paper variant="outlined" className={classes.emailWrapper}>
           <Grid container spacing={10}>
-            <Grid item xs={12} md={5} className={classes.standardMargin}>
-              <Typography variant="h4">Talk to us!</Typography>
-              <form ref={form} onSubmit={sendEmail}>
-                <label>Name</label>
-                <input type="text" name="user_name" />
-                <label>Email</label>
-                <input type="email" name="user_email" />
-                <label>Message</label>
-                <textarea name="message" />
-                <Button
-                  variant="contained"
-                  type="submit"
-                  value="Send"
-                  className={classes.sendButton}
-                >
-                  <Typography variant="body1"> SEND</Typography>
-                </Button>
-              </form>
-              <Typography variant="h6" className={classes.normalMargin}>
-                {message}
-              </Typography>
+            <Grid item xs={12} md={4}>
+              <div className={classes.emailStyle}>
+                <Typography variant="h4">Talk to us!</Typography>
+                <form ref={form} onSubmit={sendEmail}>
+                  <label>Name</label>
+                  <input type="text" name="user_name" />
+                  <label>Email</label>
+                  <input type="email" name="user_email" />
+                  <label>Message</label>
+                  <textarea name="message" />
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    value="Send"
+                    className={classes.sendButton}
+                  >
+                    <Typography variant="body1"> SEND</Typography>
+                  </Button>
+                </form>
+                <Typography variant="h6" className={classes.normalMargin}>
+                  {message}
+                </Typography>
+              </div>
             </Grid>
-            <Grid item xs={12} md={7} className={classes.imgWrapper}>
+            <Grid item xs={12} md={8} className={classes.imgWrapper}>
               <img src={about2} alt="about us" className={classes.aboutImg} />
             </Grid>
           </Grid>
