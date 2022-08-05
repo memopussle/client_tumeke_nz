@@ -3,6 +3,7 @@ import { Typography, Grid, Container, Button } from "@material-ui/core";
 import useStyles from "./styles.js";
 import hotels from "./img/hotel.jpg";
 import { withStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FFFFFF",
@@ -32,9 +33,11 @@ const Hotels = () => {
             </Typography>
 
             <div>
-              <Button variant="contained" className={classes.marginParagraph}>
-                <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
-              </Button>
+              <Link to="/search">
+                <Button variant="contained" className={classes.marginParagraph}>
+                  <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
+                </Button>
+              </Link>
             </div>
           </Grid>
         </Grid>

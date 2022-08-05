@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import useStyles from "./styles.js";
 import { Restaurants, Hotels, Services, Intro, Header } from "./index";
+import Footer from "../components/Footer/Footer";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -57,6 +58,7 @@ const LandingPage = () => {
         <Services booking={booking} />
         <Hotels />
         <Restaurants />
+        <Footer />
       </Container>
     </>
   );

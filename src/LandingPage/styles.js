@@ -1,4 +1,4 @@
-import {  makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   title: {
@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
       display: "block",
     },
     marginRight: "2rem",
+    color: "white",
   },
 
   menu: {
@@ -20,6 +21,10 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     width: "100vw",
+  },
+
+  smallMargin: {
+    marginTop: "0.5rem"
   },
 
   link: {
@@ -55,19 +60,14 @@ export default makeStyles((theme) => ({
     marginTop: "8rem",
   },
 
-  restaurantWrapper: {
-    height: "auto",
-    backgroundColor: "white",
-    marginTop: "-5rem",
-    padding: "2rem"
-
+  restaurantText: {
+    width: "30rem",
+    maxHeight: "25rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: "2rem",
   },
-  restaurantImg: {
-    width: "100%",
-    position: "relative",
-    zIndex: "-10"
-  },
-
   marginParagraph: {
     marginLeft: "5rem",
     padding: "2rem 0",

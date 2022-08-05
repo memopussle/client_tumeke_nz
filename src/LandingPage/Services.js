@@ -28,7 +28,7 @@ const Services = ({ booking }) => {
   return (
     <div className={classes.sectionMargin}>
       <Typography variant="h4">Our Tours</Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.landingButton}>
         {newBooking.map((service) => (
           <Grid key={service?._id} item xs={12} md={6} lg={3}>
             <Card>
@@ -41,12 +41,12 @@ const Services = ({ booking }) => {
               />
               <CardContent>
                 <Typography variant="h6">{service?.title}</Typography>
-                <Typography variant="body2">
+                <Typography variant="body2" className={classes.smallMargin}>
                   Price from ${service?.price} per {service?.per}
                 </Typography>
                 <Typography variant="body2">Date: {service?.date}</Typography>
 
-                <div>
+                <div className={classes.smallMargin}>
                   <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
                   <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
                   <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
@@ -57,8 +57,8 @@ const Services = ({ booking }) => {
                   4.8
                 </div>
                 <Typography variant="body1">{service?.description}</Typography>
-                <Link to={`/tours/${service._id}`} >
-                  <Button variant="outlined">
+                <Link to={`/tours/${service._id}`}>
+                  <Button variant="outlined" className={classes.landingButton}>
                     <Typography variant="body1">VIEW TOUR</Typography>
                   </Button>
                 </Link>

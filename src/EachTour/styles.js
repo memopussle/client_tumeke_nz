@@ -10,12 +10,15 @@ export default makeStyles((theme) => ({
     overflow: "hidden",
     width: "100%",
   },
-  bookNow: {
+  standardMargin: {
     width: "100%",
     margin: "2rem 0",
   },
   bookWrapper: {
     padding: "2rem",
+  },
+  sectionMargin: {
+    marginTop: "8rem"
   },
 
   detailsWrapper: {
@@ -27,6 +30,6 @@ export default makeStyles((theme) => ({
   },
   highlights: {
     fontWeight: 500,
-    marginBottom: "0.5rem"
+    marginBottom: "0.5rem",
   },
 }));

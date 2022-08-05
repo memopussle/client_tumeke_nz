@@ -20,7 +20,8 @@ import { withStyles } from "@material-ui/core/styles";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
-
+import Header from "../LandingPage/Header";
+import Footer from "../components/Footer/Footer";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -54,11 +55,12 @@ const EachTour = () => {
 
   return (
     <div>
+      <Header />
       <Container maxWidth="xl">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} className={classes.sectionMargin}>
           <Grid item xs={12}>
             <Typography variant="h4">{tour?.title}</Typography>
-            <div>
+            <div className={classes.marginTop}>
               <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
               <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
               <StarIcon style={{ color: "#f7981d", fontSize: "1.2rem" }} />
@@ -96,13 +98,13 @@ const EachTour = () => {
                 </Grid>
               </Grid>
 
-              <Button variant="contained" className={classes.bookNow}>
+              <Button variant="contained" className={classes.standardMargin}>
                 <WhiteTextTypography>BOOK NOW</WhiteTextTypography>
               </Button>
               <Typography variant="subtitle2">
                 <HistoryIcon /> Free Cancellation
               </Typography>
-              <Grid item xs={12} className={classes.marginTop}>
+              <Grid item xs={12} className={classes.standardMargin}>
                 <Typography variant="h6">About</Typography>
                 <Typography variant="body1" className={classes.marginTop}>
                   {tour?.description}
@@ -115,7 +117,7 @@ const EachTour = () => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={7}>
               <Typography variant="body2">Snap Shot: </Typography>
-              <Typography variant="h6" className={classes.marginTop}>
+              <Typography variant="h6" className={classes.standardMargin}>
                 {tour?.tour_snapshot}
               </Typography>
             </Grid>
@@ -129,7 +131,8 @@ const EachTour = () => {
 
                 <Grid item xs={12} md={4}>
                   <Typography variant="body1">
-                    <DirectionsBusIcon /> Near public transportation: {tour?.near_transport}
+                    <DirectionsBusIcon /> Near public transportation:{" "}
+                    {tour?.near_transport}
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -162,6 +165,7 @@ const EachTour = () => {
           </Box>
         </Paper>
       </Container>
+      <Footer />
     </div>
   );
 };
