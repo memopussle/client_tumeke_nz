@@ -9,10 +9,13 @@ export default makeStyles((theme) => ({
   },
   break: {
     color: "white",
-    marginLeft: "-2rem"
+    marginLeft: "-2rem",
   },
   footerBottom: {
     textAlign: "center",
   },
+  form: {
+    fontFamily: "inherit",
 
+  }
 }));

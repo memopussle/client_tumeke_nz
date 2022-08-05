@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   aboutImg: {
-    width: "80%",
+    width: "100%",
   },
   imgWrapper: {
     display: "flex",
@@ -15,6 +15,18 @@ export default makeStyles((theme) => ({
     marginTop: "8rem",
   },
   normalMargin: {
+    marginTop: "2rem",
+  },
+  standardMargin: {
+    marginTop: "5rem"
+  },
+  aboutWrapper: {
+    padding: "0 2rem",
+    marginBottom: "6rem"
+  },
+
+  sendButton: {
+    color: "white",
     marginTop: "2rem",
   },
 }));

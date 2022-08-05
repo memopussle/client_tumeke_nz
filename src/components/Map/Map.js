@@ -57,7 +57,8 @@ const Map = ({
                     {place.name}
                   </Typography>
                   <img
-                    className={classes.pointer}
+                      className={classes.pointer}
+                      alt="places"
                     src={
                       place.photo
                         ? place.photo.images.large.url
