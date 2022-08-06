@@ -1,5 +1,5 @@
 .landing-page {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.181), rgba(0, 0, 0, 0.192)), url("../../public/img/background.jpg");
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.181), rgba(0, 0, 0, 0.192)), asset_path("../../public/img/background.jpg");
     width: 100vw;
     background-repeat: no-repeat;
     background-position: center center;
