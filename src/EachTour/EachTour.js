@@ -36,7 +36,9 @@ const EachTour = () => {
   const [tour, setTour] = useState();
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:5000/tours/${id}`);
+      const response = await fetch(
+        `https://clothing-shop-overthesea.herokuapp.com/tours/${id}`
+      );
 
       if (response.ok === false) {
         return;
