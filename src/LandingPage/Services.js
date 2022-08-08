@@ -57,7 +57,7 @@ const Services = ({ booking }) => {
                   4.8
                 </div>
                 <Typography variant="body1">{service?.description}</Typography>
-                <Link to={`/tours/${service._id}`}>
+                <Link to={`/tours/${service._id}`} className={classes.link}>
                   <Button variant="outlined" className={classes.landingButton}>
                     <Typography variant="body1">VIEW TOUR</Typography>
                   </Button>

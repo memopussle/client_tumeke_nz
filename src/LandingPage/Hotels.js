@@ -33,7 +33,7 @@ const Hotels = () => {
             </Typography>
 
             <div>
-              <Link to="/search">
+              <Link to="/search" className={classes.link}>
                 <Button variant="contained" className={classes.marginParagraph}>
                   <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
                 </Button>

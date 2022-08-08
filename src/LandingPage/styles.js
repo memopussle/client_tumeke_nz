@@ -78,4 +78,8 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     flexDirection: "column",
   },
+
+  link: {
+    textDecoration: "none"
+  }
 }));

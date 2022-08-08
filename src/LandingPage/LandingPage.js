@@ -43,13 +43,14 @@ const LandingPage = () => {
             <WhiteTextTypography variant="h6">
               To the world of an incredible vacation.
             </WhiteTextTypography>
-            <Link to="/search">
-              <Button variant="contained" className={classes.landingButton}>
+
+            <Button variant="contained" className={classes.landingButton}>
+              <Link to="/search" className={classes.link}>
                 <WhiteTextTypography variant="h6">
                   EXPLORE NOW
                 </WhiteTextTypography>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </Container>
       </div>
