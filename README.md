@@ -80,14 +80,40 @@ These are instructions on how you may set up this project locally.
    git clone https://github.com/memopussle/client_tumeke_nz.git
      //server and client folder are in seperate repositories
    ```
-2. Install NPM packages
+2. Install npm packages. Open 2 terminals: one terminal is for client side and the other is for server side. Install npm packages on both sides.
+
+- Install npm package in client side
+
    ```sh
+   
+   npm install
+   
+   ```
+- Install npm package in server side
+   
+   ```sh
+   
    npm install
    ```
-4. Start nodejs
+3. Create an .env file in client side. and insert your own google API key and Travel Advisor API key like below:
+
+   ```js
+   REACT_APP_GOOGLE_MAPS_API_KEY= YOUR_GOOGLE_MAPS_API_KEY
+   REACT_APP_RAPID_API_TRAVEL_API_KEY= YOUR_RAPID_API_TRAVEL_ADVISOR_KEY
+   ```
+
+
+4. Start server side
    ```sh
    npm run dev
    ```
+   
+ 5. start client side
+ ```sh
+ npm start
+ 
+ ```
+ 
 <p>Open http://localhost:5000 with your browser to see server side.</p>
 <p>Open http://localhost:3000 with your browser to see client side.</p>
 
@@ -98,9 +124,5 @@ These are instructions on how you may set up this project locally.
 <!-- CONTACT -->
 ## Contact
 [Thu Giang](mailto:xanhtham.cuc@gmail.com?subject=[GitHub]%20Source%20Han%20Sans)
-
-<br /> 
-Project Link:
-[Tui Meke NZ Travel Website](https://github.com/memopussle/tuimekenz_server)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
