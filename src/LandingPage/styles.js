@@ -24,7 +24,7 @@ export default makeStyles((theme) => ({
   },
 
   smallMargin: {
-    marginTop: "0.5rem"
+    marginTop: "0.5rem",
   },
 
   link: {
@@ -79,7 +79,4 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
   },
 
-  link: {
-    textDecoration: "none"
-  }
 }));
