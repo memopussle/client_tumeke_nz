@@ -37,14 +37,13 @@ export default function BasicMenu() {
         }}
       >
         <Link to="/" className={classes.link}>
-          <MenuItem onClick={handleClose}>
-            Home
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Home</MenuItem>
+        </Link>
+        <Link to="/tours" className={classes.link}>
+          <MenuItem onClick={handleClose}>Tours</MenuItem>
         </Link>
         <Link to="/search" className={classes.link}>
-          <MenuItem onClick={handleClose}>
-            Search
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Search</MenuItem>
         </Link>
         <Link to="/about" className={classes.link}>
           <MenuItem onClick={handleClose}>About</MenuItem>

@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
 import ImageSlider from "./ImageSlider";
-import formatDate from "../components/formatDate";
+import formatDate from "../../components/formatDate";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import useStyles from "./styles.js";
@@ -20,8 +20,8 @@ import { withStyles } from "@material-ui/core/styles";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
-import Header from "../LandingPage/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../../LandingPage/Header";
+import Footer from "../../components/Footer/Footer";
 
 const WhiteTextTypography = withStyles({
   root: {

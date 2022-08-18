@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.css";
 import { Container, Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import useStyles from "./styles.js";
 import { Restaurants, Hotels, Services, Intro, Header } from "./index";
 import Footer from "../components/Footer/Footer";
+
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -15,21 +16,8 @@ const WhiteTextTypography = withStyles({
 
 const LandingPage = () => {
   const classes = useStyles();
-  const [booking, setBooking] = useState([]);
+ 
 
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://clothing-shop-overthesea.herokuapp.com/tours"
-    );
-    const data = await response.json();
-    setBooking(data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  console.log(booking);
   return (
     <>
       <div className="landing-page">
@@ -58,11 +46,12 @@ const LandingPage = () => {
       </div>
       <Container maxWidth="xl">
         <Intro />
-        <Services booking={booking} />
+        <Services simplified />
+
         <Hotels />
         <Restaurants />
-        <Footer />
       </Container>
+      <Footer />
     </>
   );
 };

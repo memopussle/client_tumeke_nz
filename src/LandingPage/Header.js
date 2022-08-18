@@ -15,7 +15,7 @@ const WhiteTextTypography = withStyles({
 const Header = () => {
   const classes = useStyles();
   const location = useLocation(); //get pathname
-  console.log(location.pathname);
+
 
   const whiteNav =
     location.pathname === "/" ? true : false;
@@ -38,6 +38,17 @@ const Header = () => {
                 </Typography>
               )}
             </Link>
+            <Link to="/tours" className={classes.navLink}>
+              {whiteNav ? (
+                <WhiteTextTypography variant="h6" className={classes.title}>
+                  Tours
+                </WhiteTextTypography>
+              ) : (
+                <Typography variant="h6" className={classes.title}>
+                  Tours
+                </Typography>
+              )}
+            </Link>
             <Link to="/search" className={classes.navLink}>
               {whiteNav ? (
                 <WhiteTextTypography variant="h6" className={classes.title}>
@@ -49,6 +60,7 @@ const Header = () => {
                 </Typography>
               )}
             </Link>
+
             <Link to="/about" className={classes.navLink}>
               {whiteNav ? (
                 <WhiteTextTypography variant="h6" className={classes.title}>
