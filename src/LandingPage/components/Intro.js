@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid, Typography, Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import intro from "./img/intro.jpg"
+import intro from "../img/intro.jpg"
 import useStyles from "./styles.js";
 const WhiteTextTypography = withStyles({
   root: {

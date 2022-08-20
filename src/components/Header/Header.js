@@ -32,26 +32,44 @@ const Header = ({ onPlaceChanged, onLoad }) => {
             <WhiteTextTypography variant="h5" className={classes.title}>
               Tui Meke NZ
             </WhiteTextTypography>
-            <Link to="/" className={classes.navLink}>
-              <Typography variant="h6" className={classes.title}>
-                Home
-              </Typography>
-            </Link>
-            <Link to="/tours" className={classes.navLink}>
-              <Typography variant="h6" className={classes.title}>
-                Tours
-              </Typography>
-            </Link>
-            <Link to="/search" className={classes.navLink}>
-              <Typography variant="h6" className={classes.title}>
-                Search
-              </Typography>
-            </Link>
-            <Link to="/about" className={classes.navLink}>
-              <Typography variant="h6" className={classes.title}>
+
+            <Typography
+              component={Link}
+              to="/"
+              variant="h6"
+              className={classes.title}
+            >
+              Home
+            </Typography>
+
+            <Typography
+              component={Link}
+              to="/tours"
+              variant="h6"
+              className={classes.title}
+            >
+              Tours
+            </Typography>
+
+            <Typography
+              component={Link}
+              to="/search"
+              variant="h6"
+              className={classes.title}
+            >
+              Search
+            </Typography>
+
+       
+              <Typography
+                component={Link}
+                to="/about"
+                variant="h6"
+                className={classes.title}
+              >
                 About
               </Typography>
-            </Link>
+          
 
             <BasicMenu />
           </Box>

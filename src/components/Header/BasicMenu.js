@@ -36,18 +36,21 @@ export default function BasicMenu() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <Link to="/" className={classes.link}>
-          <MenuItem onClick={handleClose}>Home</MenuItem>
-        </Link>
-        <Link to="/tours" className={classes.link}>
-          <MenuItem onClick={handleClose}>Tours</MenuItem>
-        </Link>
-        <Link to="/search" className={classes.link}>
-          <MenuItem onClick={handleClose}>Search</MenuItem>
-        </Link>
-        <Link to="/about" className={classes.link}>
-          <MenuItem onClick={handleClose}>About</MenuItem>
-        </Link>
+        <MenuItem component={Link} to="/" onClick={handleClose}>
+          Home
+        </MenuItem>
+
+        <MenuItem component={Link} to="/tours" onClick={handleClose}>
+          Tours
+        </MenuItem>
+
+        <MenuItem component={Link} to="/search" onClick={handleClose}>
+          Search
+        </MenuItem>
+
+        <MenuItem component={Link} to="/about" onClick={handleClose}>
+          About
+        </MenuItem>
       </Menu>
     </div>
   );

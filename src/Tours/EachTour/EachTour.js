@@ -20,7 +20,7 @@ import { withStyles } from "@material-ui/core/styles";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
-import Header from "../../LandingPage/Header";
+import Header from "../../LandingPage/components/Header";
 import Footer from "../../components/Footer/Footer";
 
 const WhiteTextTypography = withStyles({

@@ -26,11 +26,11 @@ const Hotels = () => {
               top experiences.
             </Typography>
             <Box>
-              <Link to="/search" className={classes.link}>
-                <Button variant="contained" className={classes.landingButton}>
+          
+                <Button component={Link} to="/search" variant="contained" className={classes.landingButton}>
                   <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
                 </Button>
-              </Link>
+              
             </Box>
           </Paper>
         </div>

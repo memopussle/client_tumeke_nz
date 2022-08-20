@@ -3,10 +3,9 @@ import "./styles.css";
 import { Container, Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import useStyles from "./styles.js";
+import useStyles from "./components/styles.js";
 import { Restaurants, Hotels, Services, Intro, Header } from "./index";
 import Footer from "../components/Footer/Footer";
-
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -16,7 +15,6 @@ const WhiteTextTypography = withStyles({
 
 const LandingPage = () => {
   const classes = useStyles();
- 
 
   return (
     <>
@@ -34,12 +32,15 @@ const LandingPage = () => {
               To the world of an incredible vacation.
             </WhiteTextTypography>
 
-            <Button variant="contained" className={classes.landingButton}>
-              <Link to="/search" className={classes.link}>
-                <WhiteTextTypography variant="h6">
-                  EXPLORE NOW
-                </WhiteTextTypography>
-              </Link>
+            <Button
+              variant="contained"
+              component={Link}
+              to="/search"
+              className={classes.landingButton}
+            >
+              <WhiteTextTypography variant="h6">
+                EXPLORE NOW
+              </WhiteTextTypography>
             </Button>
           </div>
         </Container>

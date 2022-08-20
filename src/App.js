@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Search, LandingPage, About, EachTour, Services} from "./Link";
+import { Search, LandingPage, About, EachTour, Services, AddTour} from "./Link";
 
 const App = () => {
   return (
@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/tours" element={<Services />} />
+        <Route path="/addtour" element={<AddTour />} />
       </Routes>
     </>
   );

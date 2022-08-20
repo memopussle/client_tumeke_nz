@@ -27,10 +27,7 @@ export default makeStyles((theme) => ({
     marginTop: "0.5rem",
   },
 
-  link: {
-    textDecoration: "none",
-    color: "black",
-  },
+
 
   landingBox: {
     height: "100vh",

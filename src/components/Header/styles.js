@@ -56,10 +56,6 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
   },
 
-  link: {
-    textDecoration: "none",
-    color: "black",
-  },
 
   nav: {
     display: "flex",

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import useStyles from "./styles.js";
-import Header from "../LandingPage/Header.js";
+import Header from "../LandingPage/components/Header.js";
 import emailjs from "@emailjs/browser";
 
 import { Grid, Typography, Container, Button,Paper } from "@material-ui/core";

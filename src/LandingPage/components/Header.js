@@ -1,7 +1,7 @@
 import React from "react";
 import { Toolbar, Typography, Box, Container } from "@material-ui/core";
 
-import BasicMenu from "../components/Header/BasicMenu.js";
+import BasicMenu from "../../components/Header/BasicMenu.js";
 import { Link, useLocation } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 

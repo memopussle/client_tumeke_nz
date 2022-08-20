@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import useStyles from "./styles.js";
-import hotels from "./img/hotel.jpg";
+import hotels from "../img/hotel.jpg";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 const WhiteTextTypography = withStyles({
@@ -33,11 +33,14 @@ const Hotels = () => {
             </Typography>
 
             <div>
-              <Link to="/search" className={classes.link}>
-                <Button variant="contained" className={classes.marginParagraph}>
-                  <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
-                </Button>
-              </Link>
+              <Button
+                component={Link}
+                to="/search"
+                variant="contained"
+                className={classes.marginParagraph}
+              >
+                <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
+              </Button>
             </div>
           </Grid>
         </Grid>

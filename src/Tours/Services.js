@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useStyles from "../LandingPage/styles.js";
+import useStyles from "../LandingPage/components/styles.js";
 import {
   Typography,
   Card,
@@ -14,7 +14,7 @@ import StarIcon from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
 import { Link } from "react-router-dom";
 import formatDate from "../components/formatDate";
-import Header from "../LandingPage/Header.js";
+import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
 const Services = () => {
@@ -47,11 +47,10 @@ const Services = () => {
       <Container maxWidth="xl">
         <div className={classes.sectionMargin}>
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
-        
             <Typography variant="h4">Our Tours</Typography>
             {pathname === "/tours" && (
-              <Button variant="outlined">
-                <Typography variant="body1">ADD PROPERTY</Typography>
+              <Button variant="outlined" component={Link} to="/addtour">
+                <Typography variant="body1">ADD TOURS</Typography>
               </Button>
             )}
           </Box>
@@ -97,14 +96,16 @@ const Services = () => {
                     <Typography variant="body1">
                       {service?.description}
                     </Typography>
-                    <Link to={`/tours/${service._id}`} className={classes.link}>
+                  
                       <Button
                         variant="outlined"
+                        component={Link}
+                        to={`/tours/${service._id}`}
                         className={classes.landingButton}
                       >
                         <Typography variant="body1">VIEW TOUR</Typography>
                       </Button>
-                    </Link>
+                    
                   </CardContent>
                 </Card>
               </Grid>
