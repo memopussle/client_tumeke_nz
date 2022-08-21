@@ -17,7 +17,7 @@ import formatDate from "../components/formatDate";
 import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
-const Services = () => {
+const Services = ({simplified}) => {
   const classes = useStyles();
   const [booking, setBooking] = useState([]);
   const { pathname } = useLocation();
@@ -41,6 +41,11 @@ const Services = () => {
     };
   });
 
+  const toursOnLandingPage = newBooking.slice(0, 4);
+  console.log(toursOnLandingPage);
+  
+  const newTour = simplified ? toursOnLandingPage : newBooking;
+
   return (
     <>
       <Header />
@@ -55,8 +60,9 @@ const Services = () => {
             )}
           </Box>
 
+      
           <Grid container spacing={4} className={classes.landingButton}>
-            {newBooking.map((service) => (
+            {newTour.map((service) => (
               <Grid key={service?._id} item xs={12} md={6} lg={3}>
                 <Card>
                   <CardMedia
@@ -69,7 +75,7 @@ const Services = () => {
                   <CardContent>
                     <Typography variant="h6">{service?.title}</Typography>
                     <Typography variant="body2" className={classes.smallMargin}>
-                      Price from ${service?.price} per {service?.per}
+                      Price from ${service?.price} per {service?.per} person
                     </Typography>
                     <Typography variant="body2">
                       Date: {service?.date}
@@ -96,16 +102,15 @@ const Services = () => {
                     <Typography variant="body1">
                       {service?.description}
                     </Typography>
-                  
-                      <Button
-                        variant="outlined"
-                        component={Link}
-                        to={`/tours/${service._id}`}
-                        className={classes.landingButton}
-                      >
-                        <Typography variant="body1">VIEW TOUR</Typography>
-                      </Button>
-                    
+
+                    <Button
+                      variant="outlined"
+                      component={Link}
+                      to={`/tours/${service._id}`}
+                      className={classes.landingButton}
+                    >
+                      <Typography variant="body1">VIEW TOUR</Typography>
+                    </Button>
                   </CardContent>
                 </Card>
               </Grid>

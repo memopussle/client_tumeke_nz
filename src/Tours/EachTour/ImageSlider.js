@@ -39,6 +39,7 @@ const ImgSlider = ({ tour }) => {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
+    
         {tour?.img.map((step, index) => (
           <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
