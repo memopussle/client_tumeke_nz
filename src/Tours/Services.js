@@ -8,7 +8,7 @@ import {
   Grid,
   Button,
   Container,
-  Box
+  Box,
 } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
@@ -17,7 +17,7 @@ import formatDate from "../components/formatDate";
 import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
-const Services = ({simplified}) => {
+const Services = ({ simplified }) => {
   const classes = useStyles();
   const [booking, setBooking] = useState([]);
   const { pathname } = useLocation();
@@ -31,7 +31,6 @@ const Services = ({simplified}) => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(booking);
 
   //refortmat date in each data object
   const newBooking = booking.map((eachBooking) => {
@@ -42,10 +41,9 @@ const Services = ({simplified}) => {
   });
 
   const toursOnLandingPage = newBooking.slice(0, 4);
-  console.log(toursOnLandingPage);
-  
-  const newTour = simplified ? toursOnLandingPage : newBooking;
 
+  const newTour = simplified ? toursOnLandingPage : newBooking;
+console.log(newBooking)
   return (
     <>
       <Header />
@@ -60,7 +58,6 @@ const Services = ({simplified}) => {
             )}
           </Box>
 
-      
           <Grid container spacing={4} className={classes.landingButton}>
             {newTour.map((service) => (
               <Grid key={service?._id} item xs={12} md={6} lg={3}>

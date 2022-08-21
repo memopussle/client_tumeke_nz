@@ -23,13 +23,14 @@ const AddProperty = () => {
     date: "",
     img: [],
     duration: "",
-    ticketType: "",
-    groupSize: 0,
-    nearTransport: "",
-    additionalInfo: [],
-    tourSnapshot: "",
+    ticket_type: "",
+    group_size: 0,
+    near_transport: "",
+    additional_info: [],
+    tour_snapshot: "",
     hightlights: [],
   });
+  console.log(tourData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -76,7 +77,7 @@ const AddProperty = () => {
             />
             <Input
               name="person"
-              label="Per person"
+              label="Per person (NZD)"
               type="number"
               InputLabelProps={{
                 shrink: true,
@@ -114,9 +115,9 @@ const AddProperty = () => {
               label="Ticket Type"
               variant="outlined"
               type="text"
-              value={tourData.ticketType}
+              value={tourData.ticket_type}
               onChange={(e) =>
-                setTourData({ ...tourData, ticketType: e.target.value })
+                setTourData({ ...tourData, ticket_type: e.target.value })
               }
             />
             <Grid item xs={6}>
@@ -124,9 +125,9 @@ const AddProperty = () => {
                 <InputLabel id="transport">Near Transport</InputLabel>
 
                 <Select
-                  value={tourData.nearTransport}
+                  value={tourData.near_transport}
                   onChange={(e) =>
-                    setTourData({ ...tourData, nearTransport: e.target.value })
+                    setTourData({ ...tourData, near_transport: e.target.value })
                   }
                 >
                   <MenuItem value="yes">Yes</MenuItem>
@@ -142,11 +143,11 @@ const AddProperty = () => {
               InputLabelProps={{
                 shrink: true,
               }}
-              value={tourData.groupSize}
+              value={tourData.group_size}
               onChange={(e) =>
                 setTourData({
                   ...tourData,
-                  groupSize: parseInt(e.target.value),
+                  group_size: parseInt(e.target.value),
                 })
               }
               half
@@ -156,9 +157,9 @@ const AddProperty = () => {
               name="snapshot"
               label="Tour Snapshot"
               type="text"
-              value={tourData.tourSnapshot}
+              value={tourData.tour_snapshot}
               onChange={(e) =>
-                setTourData({ ...tourData, tourSnapshot: e.target.value })
+                setTourData({ ...tourData, tour_snapshot: e.target.value })
               }
             />
             <Input
@@ -176,11 +177,11 @@ const AddProperty = () => {
             <Input
               name="information"
               label="Additional Information"
-              value={tourData.additionalInfo}
+              value={tourData.additional_info}
               onChange={(e) =>
                 setTourData({
                   ...tourData,
-                  additionalInfo: [e.target.value.split(",")],
+                  additional_info: e.target.value.split(","),
                 })
               }
               type="text"

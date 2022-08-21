@@ -34,11 +34,10 @@ const EachTour = () => {
   const { id } = useParams();
 
   const [tour, setTour] = useState();
+  console.log(tour)
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `https://clothing-shop-overthesea.herokuapp.com/tours/${id}`
-      );
+      const response = await fetch(`https://tumekenz.herokuapp.com/tours/${id}`);
 
       if (response.ok === false) {
         return;
@@ -91,11 +90,12 @@ const EachTour = () => {
 
               <Grid container className={classes.marginTop}>
                 <Grid item xs={8}>
+             
                   <Typography variant="subtitle2">Book in advance</Typography>
                 </Grid>
                 <Grid item xs={4}>
                   <Typography variant="subtitle2">
-                    From ${tour?.price} per {tour?.per}
+                    From ${tour?.price} per {tour?.per} person
                   </Typography>
                 </Grid>
               </Grid>

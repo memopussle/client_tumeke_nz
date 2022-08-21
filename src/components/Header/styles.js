@@ -7,6 +7,8 @@ export default makeStyles((theme) => ({
       display: "block",
     },
     marginRight: "2rem",
+    color: "white",
+    textDecoration: 'none'
   },
   menu: {
     display: "block",

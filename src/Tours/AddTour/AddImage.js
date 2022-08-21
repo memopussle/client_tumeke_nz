@@ -9,9 +9,7 @@ const AddImage = ({ tourData, setTourData }) => {
       const reader = new FileReader();
 
       reader.addEventListener("load", () => {
-        res(
-          reader.result
-        );
+        res(reader.result);
       });
       reader.readAsDataURL(image);
     });
@@ -24,10 +22,11 @@ const AddImage = ({ tourData, setTourData }) => {
         newImagesPromises.push(fileToDataUri(e.target.files[i]));
       }
       const newImages = await Promise.all(newImagesPromises);
+
       setImages([...images, ...newImages]);
       setTourData({ ...tourData, img: images });
     }
-    
+    e.target.value = "";
   };
 
   return (
