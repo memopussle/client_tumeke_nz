@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useStyles from "../LandingPage/components/styles.js";
 import {
   Typography,
@@ -17,34 +17,31 @@ import formatDate from "../components/formatDate";
 import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
+import { useGetToursQuery } from "../features/api/apiSlice.js";
+
 const Services = ({ simplified }) => {
   const classes = useStyles();
-  const [booking, setBooking] = useState([]);
   const { pathname } = useLocation();
 
-  const fetchData = async () => {
-    const response = await fetch("https://tumekenz.herokuapp.com/tours");
-    const data = await response.json();
-    setBooking(data);
-  };
+  const { data: tours, isLoading, isError, error } = useGetToursQuery();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  //define some additional message: loading or error
+  if (isLoading) {
+    return "Loading...";
+  } else if (isError) {
+    return `${error}`;
+  }
 
+  
   //refortmat date in each data object
-  const newBooking = booking.map((eachBooking) => {
+  const newBooking = tours?.map((eachBooking) => {
     return {
       ...eachBooking,
       date: formatDate(eachBooking.date),
     };
   });
-
-  const toursOnLandingPage = newBooking.slice(0, 4);
-
-  const newTour = simplified ? toursOnLandingPage : newBooking;
-  if (newTour.length === 0) return "Loading...";
-  console.log(newTour)
+const toursOnLandingPage = newBooking?.slice(0, 4);
+const newTour = simplified ? toursOnLandingPage : newBooking;
   return (
     <>
       <Header />
@@ -52,6 +49,7 @@ const Services = ({ simplified }) => {
         <div className={classes.sectionMargin}>
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
             <Typography variant="h4">Our Tours</Typography>
+
             {pathname === "/tours" && (
               <Button variant="outlined" component={Link} to="/addtour">
                 <Typography variant="body1">ADD TOURS</Typography>
@@ -60,7 +58,7 @@ const Services = ({ simplified }) => {
           </Box>
 
           <Grid container spacing={4} className={classes.landingButton}>
-            {newTour.map((service) => (
+            {newTour?.map((service) => (
               <Grid key={service?._id} item xs={12} md={6} lg={3}>
                 <Card>
                   <CardMedia
