@@ -2,13 +2,8 @@ import React from "react";
 import { Typography, Grid, Container, Button } from "@material-ui/core";
 import useStyles from "./styles.js";
 import hotels from "../img/hotel.jpg";
-import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "#FFFFFF",
-  },
-})(Typography);
+
 
 const Hotels = () => {
   const classes = useStyles();
@@ -38,8 +33,10 @@ const Hotels = () => {
                 to="/search"
                 variant="contained"
                 className={classes.marginParagraph}
+                color="primary"
+              
               >
-                <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
+                <Typography variant="body1">SEARCH NOW</Typography>
               </Button>
             </div>
           </Grid>

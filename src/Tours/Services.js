@@ -43,7 +43,8 @@ const Services = ({ simplified }) => {
   const toursOnLandingPage = newBooking.slice(0, 4);
 
   const newTour = simplified ? toursOnLandingPage : newBooking;
-console.log(newBooking)
+  if (newTour.length === 0) return "Loading...";
+  console.log(newTour)
   return (
     <>
       <Header />
@@ -113,6 +114,17 @@ console.log(newBooking)
               </Grid>
             ))}
           </Grid>
+          {simplified && (
+            <Button
+              variant="contained"
+              component={Link}
+              to={"/tours"}
+              className={classes.landingButton}
+              color="primary"
+            >
+              <Typography variant="body1">SEE MORE</Typography>
+            </Button>
+          )}
         </div>
       </Container>
       {pathname === "/tours" && <Footer />}

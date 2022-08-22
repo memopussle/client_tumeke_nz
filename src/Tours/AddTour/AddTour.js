@@ -3,6 +3,7 @@ import Header from "../../LandingPage/components/Header";
 import Footer from "../../components/Footer/Footer";
 import Input from "./Input";
 import AddImage from "./AddImage";
+import useStyles from "./styles.js";
 import {
   Typography,
   Container,
@@ -15,6 +16,7 @@ import {
 } from "@material-ui/core";
 
 const AddProperty = () => {
+   const classes = useStyles();
   const [tourData, setTourData] = useState({
     title: "",
     price: 0,
@@ -28,15 +30,15 @@ const AddProperty = () => {
     near_transport: "",
     additional_info: [],
     tour_snapshot: "",
-    hightlights: [],
+    highlights: [],
   });
-  console.log(tourData)
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //fetching a new tour to database
-    fetch("http://localhost:5000/tours", {
+    fetch("https://tumekenz.herokuapp.com/tours", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(tourData), //convert to json
@@ -51,7 +53,9 @@ const AddProperty = () => {
     <>
       <Header />
       <Container maxWidth="md">
-        <Typography variant="h3">Add Tour</Typography>
+        <Typography variant="h4" className={classes.title}>
+          Add Tour
+        </Typography>
 
         <form noValidate onSubmit={handleSubmit}>
           <Grid container spacing={3}>
@@ -67,7 +71,7 @@ const AddProperty = () => {
 
             <Input
               name="price"
-              label="Price"
+              label="Price (NZD)"
               type="number"
               value={tourData.price}
               onChange={(e) =>
@@ -77,7 +81,7 @@ const AddProperty = () => {
             />
             <Input
               name="person"
-              label="Per person (NZD)"
+              label="Per person"
               type="number"
               InputLabelProps={{
                 shrink: true,
@@ -166,11 +170,11 @@ const AddProperty = () => {
               name="highlights"
               label="Tour hightlights"
               type="text"
-              value={tourData.hightlights}
+              value={tourData.highlights}
               onChange={(e) =>
                 setTourData({
                   ...tourData,
-                  hightlights: e.target.value.split(","),
+                  highlights: e.target.value.split(","),
                 })
               }
             />
@@ -206,7 +210,12 @@ const AddProperty = () => {
 
               <AddImage tourData={tourData} setTourData={setTourData} />
             </Grid>
-            <Button type="submit" variant="contained">
+            <Button
+              size="large"
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
               Submit
             </Button>
           </Grid>

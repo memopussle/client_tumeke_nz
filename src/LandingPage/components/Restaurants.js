@@ -1,13 +1,7 @@
 import React from "react";
-import { Typography, Paper, Container, Button, Box} from "@material-ui/core";
+import { Typography, Paper, Container, Button, Box } from "@material-ui/core";
 import useStyles from "./styles.js";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "#FFFFFF",
-  },
-})(Typography);
 
 const Hotels = () => {
   const classes = useStyles();
@@ -26,11 +20,15 @@ const Hotels = () => {
               top experiences.
             </Typography>
             <Box>
-          
-                <Button component={Link} to="/search" variant="contained" className={classes.landingButton}>
-                  <WhiteTextTypography>SEARCH NOW</WhiteTextTypography>
-                </Button>
-              
+              <Button
+                component={Link}
+                to="/search"
+                variant="contained"
+                className={classes.landingButton}
+                color="primary"
+              >
+                <Typography variant="body1">SEARCH NOW</Typography>
+              </Button>
             </Box>
           </Paper>
         </div>

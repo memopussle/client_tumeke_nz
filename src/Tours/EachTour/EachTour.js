@@ -147,7 +147,7 @@ const EachTour = () => {
           </Grid>
           <Box className={classes.marginTop}>
             <Typography variant="body1" className={classes.highlights}>
-              Highlights
+              Hightlights
             </Typography>
             {tour?.highlights.map((hightlight) => (
               <div>
