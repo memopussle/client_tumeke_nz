@@ -6,12 +6,31 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://tumekenz.herokuapp.com",
   }),
+  tagTypes: ["Tours"],
   endpoints: (builder) => ({
     getTours: builder.query({
       query: () => "/tours",
+      providesTags: ["Tours"],
     }),
+    addTours: builder.mutation({
+      query: (tour) => ({
+        url: "/tours",
+        method: "POST",
+        body: tour,
+      }),
+      invalidatesTags: ["Tours"],
+    }),
+    getATour: builder.query({
+      query: (id) => `/tours/${id}`,
+    }),
+   
   }),
 });
 
-//create a function called use + custom name 
-export const { useGetToursQuery, useAddNewPostMutation } = apiSlice;
+//create a function called use + custom name
+export const {
+  useGetToursQuery,
+  useAddToursMutation,
+  useGetATourQuery,
+
+} = apiSlice;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import useStyles from "../LandingPage/components/styles.js";
 import {
   Typography,
@@ -17,14 +17,16 @@ import formatDate from "../components/formatDate";
 import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
-import { useGetToursQuery } from "../features/api/apiSlice.js";
+import {
+  useGetToursQuery,
+} from "../features/api/apiSlice.js";
 
 const Services = ({ simplified }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
-
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
-
+     const [status, setStatus] = useState(null);
+console.log(tours)
   //define some additional message: loading or error
   if (isLoading) {
     return "Loading...";
@@ -32,7 +34,17 @@ const Services = ({ simplified }) => {
     return `${error}`;
   }
 
+
+      // DELETE request using fetch with async/await
+    const deletePost = async (id) => {
+        await fetch(`http://localhost:5000/tours/${id}`, {
+          method: "DELETE",
+        });
+        setStatus("Delete successful");
+  }
   
+
+
   //refortmat date in each data object
   const newBooking = tours?.map((eachBooking) => {
     return {
@@ -40,11 +52,15 @@ const Services = ({ simplified }) => {
       date: formatDate(eachBooking.date),
     };
   });
-const toursOnLandingPage = newBooking?.slice(0, 4);
-const newTour = simplified ? toursOnLandingPage : newBooking;
+
+  //decide to show the list of 4 on homepage or tours on tour page
+  const toursOnLandingPage = newBooking?.slice(0, 4);
+  const newTour = simplified ? toursOnLandingPage : newBooking;
+
   return (
     <>
       <Header />
+
       <Container maxWidth="xl">
         <div className={classes.sectionMargin}>
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
@@ -98,15 +114,25 @@ const newTour = simplified ? toursOnLandingPage : newBooking;
                     <Typography variant="body1">
                       {service?.description}
                     </Typography>
-
-                    <Button
-                      variant="outlined"
-                      component={Link}
-                      to={`/tours/${service._id}`}
-                      className={classes.landingButton}
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="end"
+                      flexWrap="wrap"
                     >
-                      <Typography variant="body1">VIEW TOUR</Typography>
-                    </Button>
+                      <Button
+                        variant="outlined"
+                        component={Link}
+                        to={`/tours/${service._id}`}
+                        className={classes.landingButton}
+                      >
+                        <Typography variant="body1">VIEW TOUR</Typography>
+                      </Button>
+
+                      <Button variant="outlined" onClick={() => deletePost(service?._id)}>
+                        <Typography variant="body1">DELETE</Typography>
+                      </Button>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>

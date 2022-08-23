@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Typography,
   Grid,
@@ -22,6 +22,7 @@ import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import ConfirmationNumberIcon from "@material-ui/icons/ConfirmationNumber";
 import Header from "../../LandingPage/components/Header";
 import Footer from "../../components/Footer/Footer";
+import { useGetATourQuery } from "../../features/api/apiSlice";
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -32,26 +33,13 @@ const WhiteTextTypography = withStyles({
 const EachTour = () => {
   const classes = useStyles();
   const { id } = useParams();
+  const { data: tour, isLoading, isError, error } = useGetATourQuery(id);
 
-  const [tour, setTour] = useState();
-  console.log(tour)
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://tumekenz.herokuapp.com/tours/${id}`);
-
-      if (response.ok === false) {
-        return;
-      }
-
-      const data = await response.json();
-      setTour(data);
-    };
-
-    fetchData();
-  }, [id]);
-
-  if (tour === undefined) {
+  //define some additional message: loading or error
+  if (isLoading) {
     return "Loading...";
+  } else if (isError) {
+    return `${error}`;
   }
 
   return (
@@ -90,7 +78,6 @@ const EachTour = () => {
 
               <Grid container className={classes.marginTop}>
                 <Grid item xs={8}>
-             
                   <Typography variant="subtitle2">Book in advance</Typography>
                 </Grid>
                 <Grid item xs={4}>
@@ -149,8 +136,8 @@ const EachTour = () => {
             <Typography variant="body1" className={classes.highlights}>
               Hightlights
             </Typography>
-            {tour?.highlights.map((hightlight) => (
-              <div>
+            {tour?.highlights.map((hightlight, i) => (
+              <div key={i}>
                 <Typography variant="body1"> • {hightlight}</Typography>
               </div>
             ))}
@@ -159,8 +146,8 @@ const EachTour = () => {
             <Typography variant="body1" className={classes.highlights}>
               Know before you go
             </Typography>
-            {tour?.additional_info.map((addInfo) => (
-              <div>
+            {tour?.additional_info.map((addInfo,i) => (
+              <div key={i}>
                 <Typography variant="body1"> • {addInfo}</Typography>
               </div>
             ))}

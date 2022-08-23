@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Input from "./Input";
 import AddImage from "./AddImage";
 import useStyles from "./styles.js";
+import { useAddToursMutation } from "../../features/api/apiSlice";
 import {
   Typography,
   Container,
@@ -16,7 +17,8 @@ import {
 } from "@material-ui/core";
 
 const AddProperty = () => {
-   const classes = useStyles();
+  const classes = useStyles();
+  const [addTour] = useAddToursMutation();
   const [tourData, setTourData] = useState({
     title: "",
     price: 0,
@@ -37,15 +39,7 @@ const AddProperty = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //fetching a new tour to database
-    fetch("https://tumekenz.herokuapp.com/tours", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(tourData), //convert to json
-    }).then(() => {
-      console.log("new tour added");
-    });
-
+    addTour(tourData)
     console.log(tourData);
   };
 
