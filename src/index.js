@@ -6,6 +6,7 @@ import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
 import { apiSlice } from "./features/api/apiSlice";
 import App from "./App";
 
+
 ReactDOM.render(
   <ApiProvider api={apiSlice}>
     <Router>

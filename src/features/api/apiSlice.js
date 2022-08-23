@@ -23,7 +23,14 @@ export const apiSlice = createApi({
     getATour: builder.query({
       query: (id) => `/tours/${id}`,
     }),
-   
+    deletePost: builder.mutation({
+      query: (id) => ({
+        url: `/tours/${id}`,
+        method: "DELETE",
+       body:id
+      }),
+      invalidatesTags: ["Tours"],
+    }),
   }),
 });
 
@@ -32,5 +39,5 @@ export const {
   useGetToursQuery,
   useAddToursMutation,
   useGetATourQuery,
-
+  useDeletePostMutation
 } = apiSlice;

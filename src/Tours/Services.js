@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React from "react";
 import useStyles from "../LandingPage/components/styles.js";
 import {
   Typography,
@@ -18,15 +18,15 @@ import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
 import {
-  useGetToursQuery,
+  useGetToursQuery, useDeletePostMutation
 } from "../features/api/apiSlice.js";
 
 const Services = ({ simplified }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
-  // const [remainingPost, setRemainingPost] = useState();
-
+  
+const [deletePost] = useDeletePostMutation();
 
   //define some additional message: loading or error
   if (isLoading) {
@@ -34,16 +34,6 @@ const Services = ({ simplified }) => {
   } else if (isError) {
     return `${error}`;
   }
-
-    // DELETE request using fetch with async/await
-  const deletePost = async (id, tours) => {
-       await fetch(`http://localhost:5000/tours/${id}`, {
-        method: "DELETE",
-      });
-    // setRemainingPost(tours => tours.filter(post => post.id !== id));
-  };
-  
-
 
 
   //refortmat date in each data object
