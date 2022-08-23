@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useEffect, useState} from "react";
 import useStyles from "../LandingPage/components/styles.js";
 import {
   Typography,
@@ -25,8 +25,9 @@ const Services = ({ simplified }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
-     const [status, setStatus] = useState(null);
-console.log(tours)
+  // const [remainingPost, setRemainingPost] = useState();
+
+
   //define some additional message: loading or error
   if (isLoading) {
     return "Loading...";
@@ -34,15 +35,15 @@ console.log(tours)
     return `${error}`;
   }
 
-
-      // DELETE request using fetch with async/await
-    const deletePost = async (id) => {
-        await fetch(`http://localhost:5000/tours/${id}`, {
-          method: "DELETE",
-        });
-        setStatus("Delete successful");
-  }
+    // DELETE request using fetch with async/await
+  const deletePost = async (id, tours) => {
+       await fetch(`http://localhost:5000/tours/${id}`, {
+        method: "DELETE",
+      });
+    // setRemainingPost(tours => tours.filter(post => post.id !== id));
+  };
   
+
 
 
   //refortmat date in each data object

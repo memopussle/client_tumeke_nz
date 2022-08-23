@@ -41,7 +41,26 @@ const AddProperty = () => {
 
     addTour(tourData)
     console.log(tourData);
+    clear();
   };
+
+  const clear = () => {
+    setTourData({
+      title: "",
+      price: 0,
+      per: 0,
+      description: "",
+      date: "",
+      img: [],
+      duration: "",
+      ticket_type: "",
+      group_size: 0,
+      near_transport: "",
+      additional_info: [],
+      tour_snapshot: "",
+      highlights: [],
+    });
+  }
 
   return (
     <>
@@ -199,7 +218,7 @@ const AddProperty = () => {
             />
             <Grid item xs={6}>
               <InputLabel id="transport" display="inline-flex">
-                Photos (please choose 3 photos)
+                Photos (please choose more than 1 photo)
               </InputLabel>
 
               <AddImage tourData={tourData} setTourData={setTourData} />
