@@ -18,15 +18,18 @@ import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
 import {
-  useGetToursQuery, useDeletePostMutation
+  useGetToursQuery, useDeleteTourMutation
 } from "../features/api/apiSlice.js";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+
 
 const Services = ({ simplified }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
   
-const [deletePost] = useDeletePostMutation();
+const [deleteTour] = useDeleteTourMutation();
 
   //define some additional message: loading or error
   if (isLoading) {
@@ -120,9 +123,12 @@ const [deletePost] = useDeletePostMutation();
                         <Typography variant="body1">VIEW TOUR</Typography>
                       </Button>
 
-                      <Button variant="outlined" onClick={() => deletePost(service?._id)}>
-                        <Typography variant="body1">DELETE</Typography>
-                      </Button>
+
+                      <DeleteOutlinedIcon
+                        fontSize="large"
+                        style={{ color: "#f7981d", cursor: "pointer" }}
+                        onClick={() => deleteTour(service?._id)}
+                      />
                     </Box>
                   </CardContent>
                 </Card>

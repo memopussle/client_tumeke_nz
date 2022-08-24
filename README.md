@@ -43,11 +43,23 @@ Tui Meke NZ: A travel website that offers information on tours in Aotearoa and a
 
 
 ### Built With
+ 
 
-The technologies that I used to build this application include React, Nodejs, Express, Mongo Atlas  and fetch APIs. This project also consumes Google Map Services to display attractions, hotels and restaurants at desired locations.For design part, Material UI was used to achieve clean and consistent look. 
+- [React](https://reactjs.org/)
 
+- [NodeJS](https://nodejs.org/en/)
 
-[![Technologies used](https://skills.thijs.gg/icons?i=react,nodejs,mongodb&theme=light)](https://skills.thijs.gg)
+- [Express](https://expressjs.com/)
+
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+
+- [Google Cloud Console](https://console.cloud.google.com/)
+
+- [Redux-toolkit](https://redux-toolkit.js.org/)
+
+- [Material UI](https://mui.com/)
+
+I used React mainly for displaying the core of the project. To call REST API, I used NodeJS, Express, and store the data on MongoDB Atlas. Google Cloud Console services was used for google map and display attractions, hotels, restaurants on the map. To simplify data fetching methods, I used RTK Query from redux-toolkit and Material-UI to enhance the overall looking and design. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -55,13 +67,21 @@ The technologies that I used to build this application include React, Nodejs, Ex
   <ol>
         <li><p>User-friendly navigation</p></li>
         <li><p>View of available tours</p></li>
-        <li><p>Users can search for attractions, hotels and restaurants, which will show on Google Map.</p></li>
+        <li><p>Users can search for attractions, hotels and restaurants, which will show on Google Map</p></li>
+        <li><p>For now, the user can view all tours, and create, update and delete the selected tours. But soon, I will implement an authorization that only allows the company to update the tours on the website.</p></li>
   </ol>
 
 
 ### Challenges
 
-To complete this project, I needed to gain foundational knowledge in Axios fetching methods and Google Services in a short amount of time. There are a few features that I hope to implement in the future, and example of which is, applying REST APIs methods that allow the user to view all tours, add the wanted tours to cart, remove unwanted products from their cart and/or return to browsing if they wish to select more products before proceeding to checkout.
+This is an ongoing project where I hope to implement more features in the future as I progress throughout my course and other personal learnings. I face a couple of challenges along the project:
+- How to pass properties from parent components to children components
+- How to fetch requests from server side to client side with a clean and simple writing
+
+#### Solution/Workaround
+- **Properties Passing**: I have to figure out how to make properties available Because some components need to use/share the same states. Due to the vanilla ReactJS nature that states can't be shared within same-level components, I have raised states to be on parent components. It works perfectly fine if I only want to pass props down to 1-2 levels. However, if there are more than 3levels of children components that need to use/share the same properties ( which is known as prop drilling in React), I would have opted out of this level-raising solution and gone with Context API or redux-toolkit to create global states.
+- **Fetch requests from the server-side**: To create, update and delete tours on the tour page, I need to write requests in NodeJS and call those requests on the client-side. My first option is to use the standard Fetch method with async/await. It's working but complicated, lengthy, and not scalable in the long run. My second thought is to use redux, which I'm learning, but it takes a while to practice and understand fully. Therefore I choose redux-toolkit - modern Redux with custom hooks API, which is easier to learn and simplifies data fetching logic. With Redux-toolkit, I created a store that wraps the application with APIs, Redux-toolkit will take care of complicated process behind the scenes, make it clean and scalable.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
