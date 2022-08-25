@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../LandingPage/components/Header";
 import Footer from "../../components/Footer/Footer";
 import Input from "./Input";
 import AddImage from "./AddImage";
 import useStyles from "./styles.js";
-import { useAddToursMutation } from "../../features/api/apiSlice";
+import {
+  useAddToursMutation,
+  useGetToursQuery,
+  useUpdateTourMutation,
+} from "../../features/api/apiSlice";
 import {
   Typography,
   Container,
@@ -16,9 +20,24 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const AddProperty = () => {
+const AddTour = ({ setCurrentId, currentId }) => {
+  console.log(currentId);
   const classes = useStyles();
   const [addTour] = useAddToursMutation();
+  
+  const { data: tours } = useGetToursQuery();
+  console.log(tours);
+  // if currentId exists -> find that specific post
+  const chosenTour = tours?.find((tour) => tour._id === currentId);
+const [updateTour] = useUpdateTourMutation(chosenTour);
+
+  useEffect(() => {
+    if (chosenTour) {
+      setTourData(chosenTour);
+      console.log(tourData);
+    }
+  }, []);
+
   const [tourData, setTourData] = useState({
     title: "",
     price: 0,
@@ -35,12 +54,19 @@ const AddProperty = () => {
     highlights: [],
   });
 
+  //when finding that specific post, populate it on form
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addTour(tourData)
-    console.log(tourData);
+    //if the currentID exists -> update the post
+    if (currentId) {
+      updateTour({ ...tourData, [e.target.name]: e.target.value });
+      console.log(tourData)
+    } else {
+      addTour(tourData);
+    }
+
     clear();
   };
 
@@ -60,7 +86,7 @@ const AddProperty = () => {
       tour_snapshot: "",
       highlights: [],
     });
-  }
+  };
 
   return (
     <>
@@ -240,4 +266,4 @@ const AddProperty = () => {
   );
 };
 
-export default AddProperty;
+export default AddTour;

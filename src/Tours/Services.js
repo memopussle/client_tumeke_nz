@@ -18,18 +18,20 @@ import Header from "../LandingPage/components/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import { useLocation } from "react-router-dom";
 import {
-  useGetToursQuery, useDeleteTourMutation
+  useGetToursQuery,
+  useDeleteTourMutation,
 } from "../features/api/apiSlice.js";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import toast from "react-hot-toast";
 
-
-const Services = ({ simplified }) => {
+const Services = ({ simplified, setCurrentId }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
-  
-const [deleteTour] = useDeleteTourMutation();
+
+  const [deleteTour] = useDeleteTourMutation();
+
 
   //define some additional message: loading or error
   if (isLoading) {
@@ -37,7 +39,6 @@ const [deleteTour] = useDeleteTourMutation();
   } else if (isError) {
     return `${error}`;
   }
-
 
   //refortmat date in each data object
   const newBooking = tours?.map((eachBooking) => {
@@ -61,7 +62,7 @@ const [deleteTour] = useDeleteTourMutation();
             <Typography variant="h4">Our Tours</Typography>
 
             {pathname === "/tours" && (
-              <Button variant="outlined" component={Link} to="/addtour">
+              <Button variant="outlined" component={Link} to="/addtour" >
                 <Typography variant="body1">ADD TOURS</Typography>
               </Button>
             )}
@@ -81,7 +82,8 @@ const [deleteTour] = useDeleteTourMutation();
                   <CardContent>
                     <Typography variant="h6">{service?.title}</Typography>
                     <Typography variant="body2" className={classes.smallMargin}>
-                      Price from ${service?.price} per {service?.per} person
+                      Price from ${service?.price} per {service?.per}
+                      {service?.per > 1 ? "people" : "person"}
                     </Typography>
                     <Typography variant="body2">
                       Date: {service?.date}
@@ -122,13 +124,21 @@ const [deleteTour] = useDeleteTourMutation();
                       >
                         <Typography variant="body1">VIEW TOUR</Typography>
                       </Button>
-
-
-                      <DeleteOutlinedIcon
-                        fontSize="large"
-                        style={{ color: "#f7981d", cursor: "pointer" }}
-                        onClick={() => deleteTour(service?._id)}
-                      />
+                      <Box>
+                        <DeleteOutlinedIcon
+                          fontSize="large"
+                          style={{ color: "#f7981d", cursor: "pointer" }}
+                          onClick={() => {
+                            deleteTour(service?._id);
+                            toast.success("A new tour sucessfully created!");
+                          }}
+                        />
+                        <MoreVertIcon
+                          fontSize="large"
+                          style={{ color: "#f7981d", cursor: "pointer" }}
+                         onClick={() => setCurrentId(service?._id)}
+                        />
+                      </Box>
                     </Box>
                   </CardContent>
                 </Card>

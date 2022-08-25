@@ -31,7 +31,14 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Tours"],
     }),
-    
+    updateTour: builder.mutation({
+      query: (tour) => ({
+        url: `tours/${tour.id}`,
+        method: "PATCH",
+        body: tour,
+      }),
+      invalidatesTags: ["Tours"],
+    }),
   }),
 });
 
@@ -40,5 +47,6 @@ export const {
   useGetToursQuery,
   useAddToursMutation,
   useGetATourQuery,
-  useDeleteTourMutation
+  useDeleteTourMutation,
+  useUpdateTourMutation
 } = apiSlice;
