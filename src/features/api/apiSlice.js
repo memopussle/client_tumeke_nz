@@ -33,7 +33,7 @@ export const apiSlice = createApi({
     }),
     updateTour: builder.mutation({
       query: (tour) => ({
-        url: `tours/${tour.id}`,
+        url: `tours/${tour._id}`,
         method: "PATCH",
         body: tour,
       }),
