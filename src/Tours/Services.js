@@ -62,7 +62,7 @@ const Services = ({ simplified, setCurrentId }) => {
             <Typography variant="h4">Our Tours</Typography>
 
             {pathname === "/tours" && (
-              <Button variant="outlined" component={Link} to="/addtour" >
+              <Button variant="outlined" component={Link} to="/addtour">
                 <Typography variant="body1">ADD TOURS</Typography>
               </Button>
             )}
@@ -133,11 +133,13 @@ const Services = ({ simplified, setCurrentId }) => {
                             toast.success("A new tour sucessfully created!");
                           }}
                         />
-                        <MoreVertIcon
-                          fontSize="large"
-                          style={{ color: "#f7981d", cursor: "pointer" }}
-                         onClick={() => setCurrentId(service?._id)}
-                        />
+                        <Link to="/addtour">
+                          <MoreVertIcon
+                            fontSize="large"
+                            style={{ color: "#f7981d", cursor: "pointer" }}
+                            onClick={() => setCurrentId(service?._id)}
+                          />
+                        </Link>
                       </Box>
                     </Box>
                   </CardContent>
