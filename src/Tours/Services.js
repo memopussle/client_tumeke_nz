@@ -63,7 +63,7 @@ const Services = ({ simplified, setCurrentId }) => {
 
             {pathname === "/tours" && (
               <Button variant="outlined" component={Link} to="/addtour">
-                <Typography variant="body1">ADD TOURS</Typography>
+                <Typography variant="body1">ADD TOUR</Typography>
               </Button>
             )}
           </Box>
@@ -83,7 +83,7 @@ const Services = ({ simplified, setCurrentId }) => {
                     <Typography variant="h6">{service?.title}</Typography>
                     <Typography variant="body2" className={classes.smallMargin}>
                       Price from ${service?.price} per {service?.per}
-                      {service?.per > 1 ? "people" : "person"}
+                      {service?.per > 1 ? " people" : " person"}
                     </Typography>
                     <Typography variant="body2">
                       Date: {service?.date}

@@ -19,17 +19,17 @@ import {
   Box,
   Grid,
 } from "@material-ui/core";
+import toast, { Toaster } from "react-hot-toast";
 
-const AddTour = ({ setCurrentId, currentId }) => {
-  console.log(currentId);
+const AddTour = ({ currentId }) => {
   const classes = useStyles();
   const [addTour] = useAddToursMutation();
-  
+
   const { data: tours } = useGetToursQuery();
-  console.log(tours);
+
   // if currentId exists -> find that specific post
   const chosenTour = tours?.find((tour) => tour._id === currentId);
-const [updateTour] = useUpdateTourMutation(chosenTour);
+  const [updateTour] = useUpdateTourMutation(chosenTour);
 
   useEffect(() => {
     if (chosenTour) {
@@ -62,9 +62,11 @@ const [updateTour] = useUpdateTourMutation(chosenTour);
     //if the currentID exists -> update the post
     if (currentId) {
       updateTour({ ...tourData, [e.target.name]: e.target.value });
-      console.log(tourData)
+      toast.success("changes saved successfully!");
+      console.log(tourData);
     } else {
       addTour(tourData);
+      toast.success("A new tour sucessfully added!");
     }
 
     clear();
@@ -207,7 +209,7 @@ const [updateTour] = useUpdateTourMutation(chosenTour);
             />
             <Input
               name="highlights"
-              label="Tour hightlights"
+              label="Tour hightlights (seperate each highlight by coma)"
               type="text"
               value={tourData.highlights}
               onChange={(e) =>
@@ -219,7 +221,7 @@ const [updateTour] = useUpdateTourMutation(chosenTour);
             />
             <Input
               name="information"
-              label="Additional Information"
+              label="Additional Information (seperate each information by coma)"
               value={tourData.additional_info}
               onChange={(e) =>
                 setTourData({
@@ -249,14 +251,26 @@ const [updateTour] = useUpdateTourMutation(chosenTour);
 
               <AddImage tourData={tourData} setTourData={setTourData} />
             </Grid>
-            <Button
-              size="large"
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Submit
-            </Button>
+            <Box m={1.5}>
+              <Button
+                size="large"
+                type="submit"
+                variant="contained"
+                color="primary"
+              >
+                Submit
+              </Button>
+              <Toaster />
+              <Button
+                size="large"
+                type="submit"
+                variant="outlined"
+                onClick={clear}
+                className={classes.clear}
+              >
+                Clear
+              </Button>
+            </Box>
           </Grid>
         </form>
       </Container>

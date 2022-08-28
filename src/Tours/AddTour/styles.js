@@ -6,6 +6,9 @@ export default makeStyles((theme) => ({
     title: {
         marginTop: "8rem",
         marginBottom: "2rem"
- }
+    },
+    clear: {
+        marginLeft: "1rem"
+    }
 
 }));
