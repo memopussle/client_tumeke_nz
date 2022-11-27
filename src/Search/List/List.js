@@ -34,7 +34,6 @@ const List = ({
 
   return (
     <div className={classes.container}>
-      <Typography variant="h4">Attractions</Typography>
       {isLoading ? (
         <div className={classes.loading}>
           <CircularProgress size="5rem" />
@@ -66,7 +65,7 @@ const List = ({
               <MenuItem value="4.5">Above 4.5</MenuItem>
             </Select>
           </FormControl>
-          <Grid container spacing={3} className={classes.list}>
+          <Grid container spacing={2} className={classes.list}>
             {places?.map((place, i) => (
               <Grid ref={elRefs[i]} key={i} item xs={12}>
                 <PlaceDetails

@@ -8,7 +8,7 @@ import Map from "./Map/Map";
 import Footer from "../components/Footer/Footer";
 
 const App = () => {
-  const [type, setType] = useState("restaurants");
+  const [type, setType] = useState("attractions");
   const [rating, setRating] = useState("");
 
   const [coords, setCoords] = useState({});
@@ -63,40 +63,38 @@ const App = () => {
     <>
       <CssBaseline />
       <Header onPlaceChanged={onPlaceChanged} onLoad={onLoad} />
-      <Container maxWidth="xl">
-        <Grid container spacing={3} style={{ width: "100%" }}>
-          <Grid
-            item
-            xs={12}
-            md={8}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Map
-              setChildClicked={setChildClicked}
-              setBounds={setBounds}
-              setCoords={setCoords}
-              coords={coords}
-              places={filteredPlaces.length ? filteredPlaces : places}
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <List
-              isLoading={isLoading}
-              childClicked={childClicked}
-              places={filteredPlaces.length ? filteredPlaces : places}
-              type={type}
-              setType={setType}
-              rating={rating}
-              setRating={setRating}
-            />
-          </Grid>
+      <Grid container style={{ width: "100%" }}>
+        <Grid item xs={12} md={6}>
+          <List
+            isLoading={isLoading}
+            childClicked={childClicked}
+            places={filteredPlaces.length ? filteredPlaces : places}
+            type={type}
+            setType={setType}
+            rating={rating}
+            setRating={setRating}
+          />
         </Grid>
-        <Footer />
-      </Container>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Map
+            setChildClicked={setChildClicked}
+            setBounds={setBounds}
+            setCoords={setCoords}
+            coords={coords}
+            places={filteredPlaces.length ? filteredPlaces : places}
+          />
+        </Grid>
+      </Grid>
+      <Footer />
     </>
   );
 };

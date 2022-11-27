@@ -23,7 +23,7 @@ import {
 } from "../features/api/apiSlice.js";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import toast from "react-hot-toast";
+
 
 const Services = ({ simplified, setCurrentId }) => {
   const classes = useStyles();
@@ -31,7 +31,6 @@ const Services = ({ simplified, setCurrentId }) => {
   const { data: tours, isLoading, isError, error } = useGetToursQuery();
 
   const [deleteTour] = useDeleteTourMutation();
-
 
   //define some additional message: loading or error
   if (isLoading) {
@@ -55,7 +54,6 @@ const Services = ({ simplified, setCurrentId }) => {
   return (
     <>
       <Header />
-
       <Container maxWidth="xl">
         <div className={classes.sectionMargin}>
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
@@ -130,7 +128,6 @@ const Services = ({ simplified, setCurrentId }) => {
                           style={{ color: "#f7981d", cursor: "pointer" }}
                           onClick={() => {
                             deleteTour(service?._id);
-                            toast.success("A new tour sucessfully created!");
                           }}
                         />
                         <Link to="/addtour">
